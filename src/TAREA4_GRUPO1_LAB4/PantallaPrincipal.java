@@ -31,6 +31,8 @@ public class PantallaPrincipal extends JFrame {
         boton2.setBounds(100, 120, 120, 20);
         boton3.setBounds(100, 160, 120, 20);
 
+        boton1.addActionListener(new abrirEjercicioUno() );
+        
         getContentPane().add(lblTitulo);
         getContentPane().add(boton1);
         getContentPane().add(boton2);
@@ -51,6 +53,19 @@ class eventoBoton implements ActionListener{
         System.out.println("Esta presionando el botón Aceptar");
     }
 }
+
+
+class abrirEjercicioUno implements ActionListener {
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		EjercicioUno ejerUno = new EjercicioUno();
+		ejerUno.cambiarVisibilidad(true);
+	}
+
+}
+
+
 
 
 
