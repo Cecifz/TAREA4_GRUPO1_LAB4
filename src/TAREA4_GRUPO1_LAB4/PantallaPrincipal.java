@@ -32,6 +32,7 @@ public class PantallaPrincipal extends JFrame {
         boton3.setBounds(100, 160, 120, 20);
 
         boton1.addActionListener(new abrirEjercicioUno() );
+        boton2.addActionListener(new abrirEjercicioDos() );
         
         getContentPane().add(lblTitulo);
         getContentPane().add(boton1);
@@ -52,6 +53,13 @@ public class PantallaPrincipal extends JFrame {
             EjercicioUno ejerUno = new EjercicioUno();
             ejerUno.cambiarVisibilidad(true);
         }
+    }
+     class abrirEjercicioDos implements ActionListener {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EjercicioDos ejerDos = new EjercicioDos();
+                ejerDos.cambiarVisibilidad(true);
+            }
     }
 
 
