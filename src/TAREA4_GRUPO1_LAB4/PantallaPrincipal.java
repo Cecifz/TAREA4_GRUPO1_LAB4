@@ -44,26 +44,15 @@ public class PantallaPrincipal extends JFrame {
         setVisible(true);
     }
 
-}
-
-class eventoBoton implements ActionListener{
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        System.out.println("Esta presionando el botón Aceptar");
     }
-}
 
-
-class abrirEjercicioUno implements ActionListener {
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		EjercicioUno ejerUno = new EjercicioUno();
-		ejerUno.cambiarVisibilidad(true);
-	}
-
-}
+    class abrirEjercicioUno implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            EjercicioUno ejerUno = new EjercicioUno();
+            ejerUno.cambiarVisibilidad(true);
+        }
+    }
 
 
 
