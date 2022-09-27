@@ -2,6 +2,7 @@ package TAREA4_GRUPO1_LAB4;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.*;
@@ -132,5 +133,60 @@ public class EjercicioUno extends JFrame{
 				txtFechaIng.setBackground(Color.red);
 			else
 				txtFechaIng.setBackground(Color.white);
+		
+			
+			switch (validarDatos()) {
+			case 1:
+				JOptionPane.showMessageDialog(null, "Por favor, ingrese un nombre válido!");
+				break;
+			case 2:
+				JOptionPane.showMessageDialog(null, "Por favor, ingrese un apellido válido!");
+				break;
+			case 3: 
+				JOptionPane.showMessageDialog(null, "Por favor, ingrese un teléfono válido!");
+				break;
+			case 4:
+				JOptionPane.showMessageDialog(null, "Por favor, ingrese una fecha válida!");
+				break;
+			default:
+				break;
+			}
+			
 		}
+		
+		int validarDatos() {
+			String nombre = txtNombreIng.getText(); 
+			String apellido = txtApellidoIng.getText();
+			String tel = txtTelIng.getText();
+			String fecha = txtFechaIng.getText();
+			for(int x=0; x<nombre.length();x++) {
+				if(x==0 && nombre.charAt(x) == ' ')
+					return 1;
+				if(!Character.isLetter(nombre.charAt(x)))
+					return 1;
+			}
+			for(int x=0; x<apellido.length();x++) {
+				if(x==0 && apellido.charAt(x)== ' ')
+					return 2;
+				if(!Character.isLetter(apellido.charAt(x)))
+					return 2;
+			}
+			for(int x=0; x<tel.length();x++) {
+				if(x==0 && tel.charAt(x) == ' ')
+					return 3;
+				if(Character.isLetter(tel.charAt(x)))
+					return 3;
+			}			
+			for(int x=0; x<fecha.length();x++) {
+				if(x==0 && fecha.charAt(x) == ' ')
+					return 3;
+				if(Character.isLetter(fecha.charAt(x)))
+					if(fecha.charAt(x) != '/')
+						return 4;
+			}			
+
+			return 0;
+		}
+		
+		
 	}
