@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JPanel;
+
 
 public class EjercicioUno extends JFrame{
 	/**
@@ -24,10 +24,6 @@ public class EjercicioUno extends JFrame{
 		setSize(450, 350);
 		setLocation(350, 150);
 		getContentPane().setLayout(null);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(450, 350, 350, 150);
-		getContentPane().add(panel);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setBounds(50, 23, 120, 14);
@@ -79,7 +75,7 @@ public class EjercicioUno extends JFrame{
 		getContentPane().add(lblDatosIngresados);
 		lblDatosIngresados.setVisible(false);
 		
-		btnMostrar.addActionListener(new MostrarDatos(txtNombre, txtApellido, txtTel, txtFecha, lblSubtitulo, lblDatosIngresados, panel));
+		btnMostrar.addActionListener(new MostrarDatos(txtNombre, txtApellido, txtTel, txtFecha, lblSubtitulo, lblDatosIngresados));
 
 
 	}
@@ -97,15 +93,13 @@ public class EjercicioUno extends JFrame{
 		private JTextField txtFechaIng;
 		private JLabel lblSubtitulo;
 		private JLabel lblDatosIngresados;
-		private JPanel jPanel;
-		public MostrarDatos(JTextField txtNom, JTextField txtAp, JTextField txtTel, JTextField txtNac, JLabel lblSub, JLabel lblDatosIng, JPanel panel){
+		public MostrarDatos(JTextField txtNom, JTextField txtAp, JTextField txtTel, JTextField txtNac, JLabel lblSub, JLabel lblDatosIng){
 			txtNombreIng = txtNom;
 			txtApellidoIng = txtAp;
 			txtTelIng = txtTel;
 			txtFechaIng = txtNac;
 			lblSubtitulo = lblSub;
 			lblDatosIngresados = lblDatosIng;
-			jPanel = panel;
 		}
 		@Override
 		public void actionPerformed(ActionEvent e) {
