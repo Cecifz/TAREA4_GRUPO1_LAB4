@@ -16,9 +16,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class EjercicioDos extends JFrame{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	public EjercicioDos() {
@@ -100,6 +98,7 @@ public class EjercicioDos extends JFrame{
 		getContentPane().add(btnNewButton);
 		
 		JButton btnNuevo = new JButton("Nuevo");
+		
 		btnNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txt_nota1.setText("");
