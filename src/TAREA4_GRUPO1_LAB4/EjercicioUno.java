@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JPanel;
 
 public class EjercicioUno extends JFrame{
 	/**
@@ -23,6 +24,10 @@ public class EjercicioUno extends JFrame{
 		setSize(450, 350);
 		setLocation(350, 150);
 		getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(450, 350, 350, 150);
+		getContentPane().add(panel);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setBounds(50, 23, 120, 14);
@@ -73,8 +78,10 @@ public class EjercicioUno extends JFrame{
 		lblDatosIngresados.setBounds(50, 230, 400,50);
 		getContentPane().add(lblDatosIngresados);
 		lblDatosIngresados.setVisible(false);
+		
+		btnMostrar.addActionListener(new MostrarDatos(txtNombre, txtApellido, txtTel, txtFecha, lblSubtitulo, lblDatosIngresados, panel));
 
-		btnMostrar.addActionListener(new MostrarDatos(txtNombre, txtApellido, txtTel, txtFecha, lblSubtitulo, lblDatosIngresados));
+
 	}
 	
 	public void cambiarVisibilidad(boolean estado){
@@ -90,22 +97,56 @@ public class EjercicioUno extends JFrame{
 		private JTextField txtFechaIng;
 		private JLabel lblSubtitulo;
 		private JLabel lblDatosIngresados;
-
-		public MostrarDatos(JTextField txtNom, JTextField txtAp, JTextField txtTel, JTextField txtNac, JLabel lblSub, JLabel lblDatosIng){
+		private JPanel jPanel;
+		public MostrarDatos(JTextField txtNom, JTextField txtAp, JTextField txtTel, JTextField txtNac, JLabel lblSub, JLabel lblDatosIng, JPanel panel){
 			txtNombreIng = txtNom;
 			txtApellidoIng = txtAp;
 			txtTelIng = txtTel;
 			txtFechaIng = txtNac;
 			lblSubtitulo = lblSub;
 			lblDatosIngresados = lblDatosIng;
+			jPanel = panel;
 		}
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			String datos = txtNombreIng.getText() + " " + txtApellidoIng.getText() + ", Tel:  " + txtTelIng.getText();
-			datos += ", Fecha Nac: " + txtFechaIng.getText();
-
+			String datos = setearRojo();
+			limpiar_texto();
 			lblDatosIngresados.setText(datos);
 			lblSubtitulo.setVisible(true);
 			lblDatosIngresados.setVisible(true);
 		}
+		
+		public String setearRojo() {
+			if (txtNombreIng.getText().equals(""))
+			{
+				txtNombreIng.setBackground(Color.RED);
+			}
+			if (txtApellidoIng.getText().equals(""))
+			{
+				txtApellidoIng.setBackground(Color.RED);
+			}
+			if (txtTelIng.getText().equals(""))
+			{
+				txtTelIng.setBackground(Color.RED);
+			}
+			if(txtFechaIng.getText().equals(""))
+			{
+				txtFechaIng.setBackground(Color.RED);
+			}
+			if(txtNombreIng.getText().equals("") || txtApellidoIng.getText().equals("") || txtTelIng.getText().equals("")||txtFechaIng.getText().equals(""))
+			{
+				return "inválidos";
+			}
+			else 
+			{
+				return txtNombreIng.getText() + " " + txtApellidoIng.getText() + ", Tel:  " + txtTelIng.getText() 
+				+ ", Fecha Nac: " + txtFechaIng.getText();
+			}
+		}
+		public void limpiar_texto(){
+			txtNombreIng.setText("");
+			txtApellidoIng.setText("");
+			txtTelIng.setText("");
+			txtFechaIng.setText("");
+	    }
 	}
