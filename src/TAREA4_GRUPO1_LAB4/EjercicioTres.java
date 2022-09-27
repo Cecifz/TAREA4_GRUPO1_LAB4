@@ -147,7 +147,7 @@ public class EjercicioTres extends JFrame{
 					String cadena="";
 					int cont=0;
 					try{
-						Integer.parseInt(textField.getText());
+						
 						if (rdbtnNewRadioButton.isSelected()) 
 							{
 							 	So= rdbtnNewRadioButton.getText();
@@ -182,17 +182,23 @@ public class EjercicioTres extends JFrame{
 									if (textField.getText()!="") {
 								for (int j=0;j<cont;j++)
 					 				cadena+="-"+Gustos[j];
-								
-								MostrarMensaje.mostrarMensaje(So+cadena+"-"+textField.getText(),"Mensaje");
+								Integer.parseInt(textField.getText());
+								MostrarMensaje.mostrarMensaje(So+cadena+"-"+textField.getText()+" hs","Mensaje");
 									}
 								}
+							else
+								MostrarMensaje.mostrarMensaje("Rellene los campos correspondientes","Error");
 							 	
 						}
-						
+					catch(NumberFormatException  e) 
+					{
+						e.printStackTrace();
+						MostrarMensaje.mostrarMensaje("Error al colocar las horas en el computador","Error en formulario");
+					}
 					catch(Exception e) 
 					{
 						e.printStackTrace();
-						MostrarMensaje.mostrarMensaje("Error","Error en formulario");
+					    MostrarMensaje.mostrarMensaje("Hubo un error en el programa","Error");
 					}
 					
 				}

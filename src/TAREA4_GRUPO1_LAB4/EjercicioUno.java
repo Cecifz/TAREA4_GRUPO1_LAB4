@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFormattedTextField;
 
 public class EjercicioUno extends JFrame{
 	/**
@@ -101,11 +102,35 @@ public class EjercicioUno extends JFrame{
 		}
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			
 			String datos = txtNombreIng.getText() + " " + txtApellidoIng.getText() + ", Tel:  " + txtTelIng.getText();
 			datos += ", Fecha Nac: " + txtFechaIng.getText();
-
+			if (!(
+					txtNombreIng.getText().equals("") ||
+					txtApellidoIng.getText().equals("") ||
+					txtTelIng.getText().equals("") ||
+					txtFechaIng.getText().equals("")
+					))
+			{
 			lblDatosIngresados.setText(datos);
 			lblSubtitulo.setVisible(true);
 			lblDatosIngresados.setVisible(true);
+			}
+			if(txtNombreIng.getText().equals(""))
+				txtNombreIng.setBackground(Color.red);
+			else
+				txtNombreIng.setBackground(Color.white);
+			if(txtApellidoIng.getText().equals(""))
+				txtApellidoIng.setBackground(Color.red);
+			else
+				txtApellidoIng.setBackground(Color.white);
+			if(txtTelIng.getText().equals(""))
+				txtTelIng.setBackground(Color.red);
+			else
+				txtTelIng.setBackground(Color.white);
+			if(txtFechaIng.getText().equals(""))
+				txtFechaIng.setBackground(Color.red);
+			else
+				txtFechaIng.setBackground(Color.white);
 		}
 	}
