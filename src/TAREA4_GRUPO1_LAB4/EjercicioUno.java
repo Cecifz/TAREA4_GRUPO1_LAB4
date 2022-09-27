@@ -114,8 +114,7 @@ public class EjercicioUno extends JFrame{
 					))
 			{
 			lblDatosIngresados.setText(datos);
-			lblSubtitulo.setVisible(true);
-			lblDatosIngresados.setVisible(true);
+			
 			}
 			if(txtNombreIng.getText().equals(""))
 				txtNombreIng.setBackground(Color.red);
@@ -136,6 +135,11 @@ public class EjercicioUno extends JFrame{
 		
 			
 			switch (validarDatos()) {
+			case 0:{
+				lblSubtitulo.setVisible(true);
+				lblDatosIngresados.setVisible(true);
+				break;
+			}
 			case 1:
 				JOptionPane.showMessageDialog(null, "Por favor, ingrese un nombre válido!");
 				break;
