@@ -116,6 +116,8 @@ public class EjercicioUno extends JFrame{
 			lblSubtitulo.setVisible(true);
 			lblDatosIngresados.setVisible(true);
 			}
+			else
+			{
 			if(txtNombreIng.getText().equals(""))
 				txtNombreIng.setBackground(Color.red);
 			else
@@ -132,5 +134,9 @@ public class EjercicioUno extends JFrame{
 				txtFechaIng.setBackground(Color.red);
 			else
 				txtFechaIng.setBackground(Color.white);
+			lblDatosIngresados.setText("Datos Incorrectos");
+			lblSubtitulo.setVisible(true);
+			lblDatosIngresados.setVisible(true);
+		}
 		}
 	}
