@@ -100,6 +100,7 @@ public class EjercicioDos extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				if (txt_nota1.getText()==""||txt_nota2.getText()==""||txt_nota3.getText()=="")
 					MostrarMensaje.mostrarMensaje("Debe completar todos los campos","Error");
+				
 				try
 				{
 					Float Nota1=Float.parseFloat(txt_nota1.getText());
