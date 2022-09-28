@@ -98,6 +98,8 @@ public class EjercicioDos extends JFrame{
 		JButton btnNewButton = new JButton("Calcular");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (txt_nota1.getText()==""||txt_nota2.getText()==""||txt_nota3.getText()=="")
+					MostrarMensaje.mostrarMensaje("Debe completar todos los campos","Error");
 				try
 				{
 					Float Nota1=Float.parseFloat(txt_nota1.getText());
@@ -150,6 +152,12 @@ public class EjercicioDos extends JFrame{
 		getContentPane().add(btnNuevo);
 		
 		JButton btnNewButton_1_1 = new JButton("Salir");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				dispose ();
+			}
+		});
 		btnNewButton_1_1.setBounds(286, 153, 124, 33);
 		getContentPane().add(btnNewButton_1_1);
 
