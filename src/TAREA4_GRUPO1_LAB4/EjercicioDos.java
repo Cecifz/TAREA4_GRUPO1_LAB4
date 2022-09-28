@@ -94,6 +94,41 @@ public class EjercicioDos extends JFrame{
 		lblPr.setBounds(10, 23, 68, 14);
 		panel_1.add(lblPr);
 		JButton btnNewButton = new JButton("Calcular");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try
+				{
+					Float Nota1=Float.parseFloat(txt_nota1.getText());
+					Float Nota2=Float.parseFloat(txt_nota2.getText());
+					Float Nota3=Float.parseFloat(txt_nota3.getText());
+					Float Prom=(Nota1+Nota2+Nota3)/3;
+					if(comboBox.getSelectedItem().toString().equals("Desaprobado") || Nota1<6 || Nota2<6 || Nota3<6 )
+						txt_cond.setText("Libre");
+					else
+					{
+					 if(Prom>7 && Nota1>7 && Nota2>7 && Nota3>7)
+						 txt_cond.setText("Promocionado");
+					 else 
+						 txt_cond.setText("Regular");
+					}
+
+					txt_prom.setText(Prom.toString());
+				}
+				catch(NumberFormatException  a) 
+				{
+					a.printStackTrace();
+					MostrarMensaje.mostrarMensaje("Error al colocar las notas","Error en formulario");
+				}
+				catch(Exception a) 
+				{
+					a.printStackTrace();
+				
+				
+				    MostrarMensaje.mostrarMensaje("Hubo un error en el programa","Error");
+				}
+	
+			}
+		});
 		btnNewButton.setBounds(286, 68, 124, 33);
 		getContentPane().add(btnNewButton);
 		
