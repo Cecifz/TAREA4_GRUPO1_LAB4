@@ -77,6 +77,7 @@ public class EjercicioDos extends JFrame{
 		panel_1.setLayout(null);
 		
 		TextField txt_cond = new TextField();
+		txt_cond.setEditable(false);
 		txt_cond.setBounds(84, 60, 130, 22);
 		panel_1.add(txt_cond);
 		
@@ -86,6 +87,7 @@ public class EjercicioDos extends JFrame{
 		panel_1.add(lblCondicin);
 		
 		TextField txt_prom = new TextField();
+		txt_prom.setEditable(false);
 		txt_prom.setBounds(84, 23, 130, 22);
 		panel_1.add(txt_prom);
 		
